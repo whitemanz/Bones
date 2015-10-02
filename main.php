@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include "bones.php"; // подключение класса Bones
+include_once "bones.php"; // подключение класса Bones
 
 //создание объекта класса Bones
 $Kubiki = new Bones();

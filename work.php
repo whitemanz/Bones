@@ -11,8 +11,10 @@ for($i=2; $i<=12; $i++){
 	}
 }
 // удаляем таблицу experiments перед созданием новой
+
 $stmt = $db->prepare('DELETE FROM experiments');
 $stmt->execute();
+
 // заполняем таблицу экспериментов
 $stmt = $db->prepare("INSERT INTO experiments (id_exp, data, time, name, trows, kol_bones) values (:ID, :DT, :TI, :NM, :TR, :KB)");
 for($i=1; $i<=5; $i++){
@@ -46,7 +48,7 @@ for ($i = 0; $i < count($eXp); $i++){
 echo "<tr>"; // открыли строку таблицы
 foreach ($eXp[$i] as $key => $value) {
 	$res=$i+1;
-   echo "<td class='eXp'><a href='result.php?name=$res' target='_blank'>".$value."</a></td>";
+   echo "<td class='eXp'><a href='vendor/Whitemanz/Bones/result.php?name=$res' target='_blank'>".$value."</a></td>";
 }
 echo "</tr></a>"; // закрыли строку таблицы
   }

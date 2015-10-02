@@ -1,5 +1,5 @@
-<?php
-// âàðèàíò ¹ 2
+ï»¿<?php
+// Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚ â„– 2
 try
 {
 	$db = new PDO('mysql:host=localhost;dbname=Kubiki','root','');
@@ -8,23 +8,23 @@ catch(PDOException $e)
 { 	
 	if ($e->GetCode() == 1049){
 $db = new PDO('mysql:host=localhost;','root','');
-	$db->exec('CREATE DATABASE $Kubiki'); //
-	$db->exec('USE DATABASE $Kubiki'); //
-	// ñîçäà¸ì òàáëèöó åêñïåðèìåíòîâ
-	$db->exec('CREATE table $experiments( 
+	$db->exec('CREATE DATABASE IF NOT EXISTS Kubiki'); //
+	$db->exec('USE Kubiki'); //
+	// ÑÐ¾Ð·Ð´Ð°Ñ‘Ð¼ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ ÐµÐºÑÐ¿ÐµÑ€Ð¸Ð¼ÐµÐ½Ñ‚Ð¾Ð²
+	$db->exec('CREATE table IF NOT EXISTS experiments( 
      id_exp INT( 10 ) AUTO_INCREMENT PRIMARY KEY,
      data VARCHAR(30),
 	 time VARCHAR(30),
      name VARCHAR(30),
      trows INT( 10 ),
-	 kol_bones INT( 10 );'); 
-	 // ñîçäà¸ì òàáëèöó ðóçóëüòàòîâ
-	 $db->exec('CREATE table $kosti(
+	 kol_bones INT( 10 ));'); 
+	 // ÑÐ¾Ð·Ð´Ð°Ñ‘Ð¼ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ Ñ€ÑƒÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ð¾Ð²
+	 $db->exec('CREATE table IF NOT EXISTS kosti(
      id_res INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
      number INT( 11 ),
      sum INT( 11 ),
      drob float, 
-     id_exp INT( 11 );');
+     id_exp INT( 11 ));');
 	} else die("Error: ".$e->getMessage());
 }
 ?>
