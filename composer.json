@@ -1,0 +1,13 @@
+{
+"name":"Whitemanz/Bones",
+"authors": [
+    {
+    "name":"Igor Shcurlapov",
+    "email":"Whiteman26@mail.ru"
+    }
+    ],
+    "version":"dev-master",
+    "autoload": {
+    "files":["2.1.css","connect.php","result.php","bones.php","main.php","work.php"]
+    }
+}
